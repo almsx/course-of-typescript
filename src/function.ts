@@ -36,3 +36,25 @@ let createPic = (title: string, date: string, size: SquareSize): object => {
 
 const picture = createPic('Christmas Day', '2022-12-25', '500x500');
 console.log('Picture ', picture);
+
+// Tipo de Retorno con TypeScript
+
+function handleError(code: number, message: string): never | string {
+    // Procesamiento del código, mensaje
+    if (message === 'error') {
+        throw new Error(message + '. Code Error: '+code);
+    } else {
+        return 'An error has occured';
+    }
+}
+
+
+
+try {
+    let result = handleError(200, 'OK'); // String
+    console.log('Result ', result);
+    result = handleError(400, 'error'); // never
+    console.log('Result ', result);
+} catch (error) {
+
+}
